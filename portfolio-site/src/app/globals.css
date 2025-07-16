@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Professional Color Palette - Inspired by Athos */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  
+  /* Earthy accents */
+  --color-sage-50: #f6f8f4;
+  --color-sage-100: #e8f2df;
+  --color-sage-200: #dfefd7;
+  --color-sage-300: #c5e0b3;
+  --color-sage-400: #a8ce88;
+  --color-sage-500: #8ab961;
+  --color-sage-600: #6ca043;
+  --color-sage-700: #537f35;
+  --color-sage-800: #446529;
+  --color-sage-900: #3a5424;
+  
+  /* Professional blues */
+  --color-blue-50: #f0f9ff;
+  --color-blue-100: #e0f2fe;
+  --color-blue-200: #bae6fd;
+  --color-blue-300: #7dd3fc;
+  --color-blue-400: #38bdf8;
+  --color-blue-500: #0ea5e9;
+  --color-blue-600: #0284c7;
+  --color-blue-700: #0369a1;
+  --color-blue-800: #075985;
+  --color-blue-900: #0c4a6e;
+  
+  /* Dark theme */
+  --color-dark-50: #1a1a1a;
+  --color-dark-100: #2d2d2d;
+  --color-dark-200: #404040;
+  --color-dark-300: #595959;
+  --color-dark-400: #737373;
+  --color-dark-500: #8c8c8c;
+  --color-dark-600: #a6a6a6;
+  --color-dark-700: #bfbfbf;
+  --color-dark-800: #d9d9d9;
+  --color-dark-900: #f2f2f2;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-inter);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@layer utilities {
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  .bg-grid-pattern {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60' width='60' height='60'%3e%3cg fill='none' stroke='%23374151' stroke-width='1'%3e%3cpath d='m60 0v60h-60v-60h60z'/%3e%3c/g%3e%3c/svg%3e");
+  }
+  
+  .bg-grid-white {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60' width='60' height='60'%3e%3cg fill='none' stroke='%23ffffff' stroke-width='1'%3e%3cpath d='m60 0v60h-60v-60h60z'/%3e%3c/g%3e%3c/svg%3e");
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "rag-agent",
+  "title": "Open Source RAG Agent Framework",
+  "description": "Built a flexible RAG agent framework for conversational AI applications",
+  "techStack": ["Python", "LangChain", "OpenAI", "Pinecone", "FastAPI"],
+  "githubUrl": "https://github.com/username/rag-agent",
+  "liveUrl": "https://rag-demo.example.com",
+  "status": "active",
+  "highlights": [
+    "10k+ GitHub stars",
+    "Used by 50+ companies",
+    "Modular architecture for easy customization"
+  ],
+  "screenshots": ["/images/rag-agent-1.png", "/images/rag-agent-2.png"],
+  "tags": ["AI", "RAG", "Open Source", "Python"],
+  "featured": true
+}

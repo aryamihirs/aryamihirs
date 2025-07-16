@@ -1,0 +1,14 @@
+{
+  "id": "stanford",
+  "institution": "Stanford University",
+  "degree": "MS in Computer Science",
+  "field": "Artificial Intelligence",
+  "duration": "2020 - 2022",
+  "highlights": [
+    "Specialized in Machine Learning and NLP",
+    "Research on conversational AI systems",
+    "Published 2 papers on RAG architectures"
+  ],
+  "gpa": "3.9/4.0",
+  "order": 1
+}
