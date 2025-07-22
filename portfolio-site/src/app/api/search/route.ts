@@ -149,7 +149,9 @@ async function runPythonSearch(query: string): Promise<{ results: SearchResult[]
     const pythonScript = path.join(process.cwd(), 'src/lib/search_api.py');
     const contentDir = path.join(process.cwd(), 'content');
     
-    const python = spawn('/Users/aryamihirs/projects/product/aryamihirs/portfolio-env/bin/python', [pythonScript], {
+    // Use system Python or virtual environment from environment variable
+    const pythonPath = process.env.PYTHON_PATH || 'python3';
+    const python = spawn(pythonPath, [pythonScript], {
       cwd: process.cwd(),
       env: { 
         ...process.env,

@@ -1,24 +1,45 @@
 # AI-Powered Portfolio Website
 
-A stunning, interactive portfolio website built with Next.js, featuring AI-powered search capabilities using Google Gemini.
+A modern portfolio website built with Next.js 15, featuring AI-powered search capabilities using Google Gemini and a unified case study architecture.
 
-## 🚀 Features
+## 🚀 Current Implementation Status
 
-- **Animated Hero Section**: Dynamic text animations with "I code." → "I build." → "I launch."
-- **AI-Powered Search**: Intelligent search using RAG (Retrieval-Augmented Generation) with Google Gemini
-- **Experience Showcase**: Interactive case studies with detailed project breakdowns
-- **Projects Gallery**: Open source projects with GitHub integration
-- **Blog Section**: Insights on AI, product management, and technology
-- **Education Timeline**: Academic background with achievements
-- **Consulting CTA**: Contact forms and consultation booking
+### ✅ **Working Features**
+
+**Backend & APIs:**
+- **Full API Infrastructure** - All content endpoints functional
+- **AI-Powered Search** - Google Gemini integration with RAG architecture
+- **Unified Data Model** - CaseStudy interface supporting work, projects, education, and research
+- **Content APIs** - `/api/content/*` endpoints for all content types
+- **Python Search Engine** - LangChain + FAISS for semantic search
+
+**Frontend Pages:**
+- **Case Study Detail Pages** - Fully functional at `/case-study/[id]`
+- **Homepage** - Basic structure (needs UI implementation)
+
+### 🚧 **In Progress**
+
+The main homepage UI components need to be rebuilt:
+- Hero section with AI search integration
+- Unified CaseStudies component
+- Blog section
+- Education timeline
+- Consulting CTA
 
 ## 🛠 Tech Stack
 
-- **Frontend**: Next.js 15, TypeScript, TailwindCSS, Framer Motion
-- **AI/ML**: Google Gemini, LangChain, FAISS vector store
-- **Content**: JSON/Markdown with frontmatter
-- **Styling**: TailwindCSS with custom animations
-- **Icons**: Lucide React
+**Frontend:**
+- Next.js 15.4.1 with App Router
+- React 19.1.0 with TypeScript
+- Tailwind CSS v4
+- Framer Motion (for animations)
+- Lucide React (icons)
+
+**Backend:**
+- Next.js API Routes
+- Python AI Search (Google Gemini + LangChain)
+- FAISS vector database
+- JSON/Markdown content management
 
 ## 📦 Installation
 
@@ -28,7 +49,7 @@ A stunning, interactive portfolio website built with Next.js, featuring AI-power
    cd portfolio-site
    ```
 
-2. **Install dependencies**
+2. **Install Node dependencies**
    ```bash
    npm install
    ```
@@ -41,13 +62,10 @@ A stunning, interactive portfolio website built with Next.js, featuring AI-power
    ```
 
 4. **Environment setup**
-   ```bash
-   cp .env.example .env.local
-   ```
-   
-   Add your Google Gemini API key:
+   Create a `.env.local` file:
    ```
    GOOGLE_API_KEY=your_google_api_key_here
+   PYTHON_PATH=/path/to/portfolio-env/bin/python  # Optional: defaults to python3
    ```
 
 5. **Run the development server**
@@ -58,96 +76,91 @@ A stunning, interactive portfolio website built with Next.js, featuring AI-power
 6. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
+## 📂 Project Structure
+
+```
+portfolio-site/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── api/               # API endpoints
+│   │   │   ├── content/       # Content APIs
+│   │   │   └── search/        # AI search endpoint
+│   │   ├── case-study/[id]/   # Dynamic case study pages
+│   │   └── page.tsx           # Homepage (minimal)
+│   ├── components/            # React components
+│   ├── lib/                   # Python AI search scripts
+│   └── types/                 # TypeScript definitions
+├── content/                   # Content storage
+│   ├── blogs/                # Blog markdown files
+│   ├── education/            # Education JSON
+│   ├── experiences/          # Work experience JSON
+│   └── projects/             # Project JSON
+└── public/                   # Static assets
+```
+
 ## 🔧 Configuration
 
 ### Content Management
 
-All content is stored in the `content/` directory:
-
-- `content/experiences/` - Professional experience (JSON)
-- `content/projects/` - Personal/open source projects (JSON)  
-- `content/blogs/` - Blog posts (Markdown with frontmatter)
-- `content/education/` - Educational background (JSON)
+Content is stored in the `content/` directory:
+- **Experiences**: JSON files defining work experiences
+- **Projects**: JSON files for personal/open source projects
+- **Blogs**: Markdown files with frontmatter
+- **Education**: JSON files for academic background
 
 ### AI Search Setup
 
-The AI search uses Google Gemini for embeddings and response generation. To enable:
+The AI search requires:
+1. Google Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Python environment with required packages
+3. Environment variables properly configured
 
-1. Get a Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Add it to your `.env.local` file
-3. The search will automatically use AI when the API key is available, falling back to basic search otherwise
+## 📝 API Endpoints
 
-## 📝 Customization
+- `GET /api/content/case-studies` - Returns unified case study data
+- `GET /api/content/experiences` - Returns work experiences
+- `GET /api/content/projects` - Returns projects
+- `GET /api/content/blogs` - Returns blog posts
+- `GET /api/content/education` - Returns education data
+- `POST /api/search` - AI-powered search with query in body
 
-### Adding New Experiences
+## 🎨 Design System
 
-Create a new JSON file in `content/experiences/`:
-
-```json
-{
-  "id": "unique-id",
-  "title": "Experience Title",
-  "company": "Company Name",
-  "role": "Your Role",
-  "duration": "2023 - Present",
-  "summary": "Brief description",
-  "problem": "Problem you solved",
-  "solution": "How you solved it",
-  "impact": {
-    "metrics": ["Metric 1", "Metric 2"],
-    "testimonials": ["Quote from stakeholder"]
-  },
-  "tags": ["AI", "Product"],
-  "featured": true
-}
-```
-
-### Adding Blog Posts
-
-Create a new Markdown file in `content/blogs/`:
-
-```markdown
----
-title: "Your Blog Post Title"
-date: "2024-01-15"
-summary: "Brief description of the post"
-tags: ["AI", "Technology"]
-coverImage: "/images/cover.jpg"
-readTime: "5 min"
----
-
-# Your Blog Content Here
-
-Write your blog content in Markdown format.
-```
+- **Colors**: Neutral palette with sage accents
+- **Typography**: Inter font with responsive sizing
+- **Layout**: Max-width containers with consistent spacing
+- **Components**: Card-based design with hover effects
 
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
 
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Add environment variables in Vercel dashboard
+1. Push code to GitHub
+2. Connect repository to Vercel
+3. Add environment variables:
+   - `GOOGLE_API_KEY`
+   - `PYTHON_PATH` (if using custom Python path)
 4. Deploy!
 
-## 🔗 Current Status
+### Important Notes
 
-✅ **Completed Features:**
-- Hero section with text animations
-- AI-powered search with Gemini integration
-- Experience showcase with modal details
-- Projects gallery with GitHub integration
-- Blog section with content management
-- Education timeline
-- Consulting CTA with contact modal
-- Responsive design with dark mode support
-- Content management system
+- Python dependencies must be installed on the deployment server
+- Consider using Docker for consistent Python environment
+- AI search falls back to basic search if API key is missing
 
-🔄 **Running:**
-- Development server on http://localhost:3001
-- All sections fully functional
-- AI search ready (requires GOOGLE_API_KEY)
+## 🔗 Current Limitations
+
+1. **Homepage UI** - Currently minimal, needs component implementation
+2. **Python Dependency** - AI search requires Python runtime
+3. **No Image Assets** - Images referenced in content need to be added
+
+## 📈 Performance
+
+- Lighthouse scores optimized for Core Web Vitals
+- Code splitting at route level
+- Minimal JavaScript bundle with Tailwind CSS v4
+- Static generation where possible
 
 ---
 
-Built with ❤️ and AI using Next.js, TypeScript, and Google Gemini
+Built with Next.js, TypeScript, Tailwind CSS, and Google Gemini AI
